@@ -6,8 +6,97 @@
   --color-glass-bg: rgba(8, 20, 40, 0.75);
   /* Darker, richer */
   --color-glass-border: rgba(100, 212, 255, 0.2);
+  /* Existing variables... */
   --font-main: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+/* ... existing body styles ... */
+
+/* --- Responsive Design --- */
+
+/* Tablet & Mobile Optimization */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    align-items: flex-start;
+    /* Prevent centering cutoff on small screens */
+  }
+
+  .app-container {
+    padding: 1rem !important;
+    max-width: 100% !important;
+    margin-top: 2rem;
+    /* Give some top space */
+    margin-bottom: 2rem;
+  }
+
+  /* Header adjustments */
+  header h1.title-gradient {
+    fontSize: 2.2rem !important;
+    /* Smaller title */
+  }
+
+  header img {
+    height: 36px !important;
+    /* Smaller logo */
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Compact Panel for Mobile */
+  .glass-panel-premium {
+    padding: 1.5rem !important;
+    /* Reduce padding from 3rem */
+    min-height: auto !important;
+    border-radius: 20px !important;
+  }
+
+  /* Typography Scaling */
+  h2,
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+  }
+
+  /* Touch Targets */
+  .btn-primary-glow {
+    padding: 1rem 2rem !important;
+    /* Slightly smaller padding */
+    width: 100%;
+    /* Full width for easy thumb reach */
+    font-size: 1.1rem !important;
+  }
+
+  .input-glass {
+    font-size: 1rem !important;
+    padding: 1rem !important;
+  }
+
+  /* Start Screen specific */
+  .typewriter-text {
+    font-size: 1rem !important;
+    white-space: normal !important;
+    /* Allow wrapping on very small screens */
+    border-right: none !important;
+    /* Remove cursor if wrapping */
+    animation: fadeIn 1s ease-out !important;
+    /* Fallback animation */
+  }
+}
+
+/* Small Mobile (iPhone SE/5) */
+@media (max-width: 380px) {
+  header h1.title-gradient {
+    font-size: 1.8rem !important;
+  }
+
+  .glass-panel-premium {
+    padding: 1.2rem !important;
+  }
+}
+
 
 * {
   box-sizing: border-box;
