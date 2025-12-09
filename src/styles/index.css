@@ -20,26 +20,30 @@
     padding: 0;
     align-items: flex-start;
     /* Prevent centering cutoff on small screens */
+    padding-top: env(safe-area-inset-top);
+    /* Notch Support */
   }
 
   .app-container {
-    padding: 1rem !important;
+    padding: 1.5rem !important;
     max-width: 100% !important;
-    margin-top: 2rem;
-    /* Give some top space */
+    margin-top: 1rem;
     margin-bottom: 2rem;
   }
 
   /* Header adjustments */
   header h1.title-gradient {
-    fontSize: 2.2rem !important;
+    font-size: 2.2rem !important;
     /* Smaller title */
   }
 
   header img {
-    height: 36px !important;
+    height: 40px !important;
     /* Smaller logo */
     margin-bottom: 0.5rem !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Compact Panel for Mobile */
@@ -76,13 +80,14 @@
 
   /* Start Screen specific */
   .typewriter-text {
-    font-size: 1rem !important;
-    white-space: normal !important;
-    /* Allow wrapping on very small screens */
-    border-right: none !important;
-    /* Remove cursor if wrapping */
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+    border-right: 2px solid var(--color-secondary) !important;
     animation: fadeIn 1s ease-out !important;
-    /* Fallback animation */
+    overflow: hidden;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
   }
 }
 
