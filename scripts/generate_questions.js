@@ -34,16 +34,38 @@ try {
                     row['Option C']?.toString().trim(),
                     row['Option D']?.toString().trim()
                 ].filter(Boolean), // Remove empty options
-                answer: row['Correct Answer']?.toString().trim()
+                answer: null // Will determine below
             };
 
-            // Double check: if 'Correct Answer' is missing but 'Correct Option' exists (e.g. 'A')
-            if (!questionObj.answer && row['Correct Option']) {
+            // Strategy 1: Use 'Correct Option' (A/B/C/D) Column - MOST RELIABLE
+            if (row['Correct Option']) {
                 const map = { 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
-                const idx = map[row['Correct Option'].trim().toUpperCase()];
+                const idx = map[row['Correct Option'].toString().trim().toUpperCase()];
                 if (idx !== undefined && questionObj.options[idx]) {
                     questionObj.answer = questionObj.options[idx];
                 }
+            }
+
+            // Strategy 2: Fallback to 'Correct Answer' text matching if Strategy 1 failed
+            if (!questionObj.answer && row['Correct Answer']) {
+                const rawAns = row['Correct Answer'].toString().trim();
+                // Try exact match
+                if (questionObj.options.includes(rawAns)) {
+                    questionObj.answer = rawAns;
+                } else {
+                    // Try fuzzy match (if option contains the answer text)
+                    const fuzzyMatch = questionObj.options.find(opt => opt.includes(rawAns) || rawAns.includes(opt));
+                    if (fuzzyMatch) {
+                        questionObj.answer = fuzzyMatch;
+                    }
+                }
+            }
+
+            // If still no answer, perform a final "best effort" trim check or log error
+            if (!questionObj.answer && row['Correct Answer']) {
+                // Last resort: just use the raw text, but warn
+                questionObj.answer = row['Correct Answer'].toString().trim();
+                // console.warn(`Warning: Could not link answer for Q${questionObj.id} to an option.`);
             }
 
             allQuestions.push(questionObj);

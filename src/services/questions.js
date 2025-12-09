@@ -64,7 +64,7 @@ export const questions = [
       "50+",
       "200+"
     ],
-    "answer": "50+ reusable components"
+    "answer": "50+"
   },
   {
     "id": 7,
@@ -75,7 +75,7 @@ export const questions = [
       "300+",
       "1000+"
     ],
-    "answer": "300+ plug-and-play agents"
+    "answer": "300+"
   },
   {
     "id": 8,
@@ -471,7 +471,7 @@ export const questions = [
       "Mandatory open‑sourcing of all models",
       "Sector‑specific exemptions only"
     ],
-    "answer": "Risk‑based tiers with obligations"
+    "answer": "Risk‑based tiers with obligations (unacceptable/high/limited/minimal)"
   },
   {
     "id": 44,
@@ -515,7 +515,7 @@ export const questions = [
       "Increase model size only",
       "Disable citations"
     ],
-    "answer": "Use grounding, verification, and human oversight"
+    "answer": "Use grounding (RAG), verification, and human‑in‑the‑loop on critical tasks"
   },
   {
     "id": 48,
@@ -526,7 +526,7 @@ export const questions = [
       "Watermarking with signed metadata (e.g., C2PA/Content Credentials)",
       "Private emails"
     ],
-    "answer": "Watermarking with signed metadata (C2PA/Content Credentials)"
+    "answer": "Watermarking with signed metadata (e.g., C2PA/Content Credentials)"
   },
   {
     "id": 49,
@@ -537,7 +537,7 @@ export const questions = [
       "Eliminating the need for consent",
       "Speeding up labeling with crowdsourcing"
     ],
-    "answer": "Keeping data on device while sharing updates"
+    "answer": "Keeping personal data on device while sharing model updates"
   },
   {
     "id": 50,
@@ -548,7 +548,7 @@ export const questions = [
       "Speed up inference",
       "Identify outliers"
     ],
-    "answer": "Add noise to protect individuals"
+    "answer": "Add calibrated noise to protect individuals in aggregate statistics"
   },
   {
     "id": 51,
@@ -559,7 +559,7 @@ export const questions = [
       "Free GPU access",
       "No need for updates"
     ],
-    "answer": "Lower latency and improved privacy"
+    "answer": "Lower latency and improved privacy by processing locally"
   },
   {
     "id": 52,
@@ -570,7 +570,7 @@ export const questions = [
       "Marketing color vs. logo size",
       "None"
     ],
-    "answer": "Latency/privacy vs. scale/observability"
+    "answer": "Latency/privacy vs. centralized scale and observability"
   },
   {
     "id": 53,
@@ -581,7 +581,7 @@ export const questions = [
       "RGB value",
       "Mean pixel error"
     ],
-    "answer": "Precision/Recall and F1"
+    "answer": "Precision/Recall and F1‑score"
   },
   {
     "id": 54,
@@ -603,7 +603,7 @@ export const questions = [
       "Statistical properties of inputs/targets shifting over time",
       "User password rotation"
     ],
-    "answer": "Shifting data/target distributions over time"
+    "answer": "Statistical properties of inputs/targets shifting over time"
   },
   {
     "id": 56,
@@ -614,7 +614,7 @@ export const questions = [
       "Increase token length",
       "Encrypt prompts"
     ],
-    "answer": "Track origin/transformations/usage"
+    "answer": "Track data origin, transformations, and usage for trust and auditability"
   },
   {
     "id": 57,
@@ -625,7 +625,7 @@ export const questions = [
       "Logo recoloring",
       "Static websites"
     ],
-    "answer": "Safety‑critical/high‑impact decisions"
+    "answer": "Safety‑critical or high‑impact decisions"
   },
   {
     "id": 58,
@@ -636,7 +636,7 @@ export const questions = [
       "Only highway autopilot",
       "No mapping required"
     ],
-    "answer": "Autonomy within defined ODD"
+    "answer": "Autonomy within an Operational Design Domain (ODD)"
   },
   {
     "id": 59,
@@ -647,7 +647,7 @@ export const questions = [
       "Bigger screen size",
       "No consent needed"
     ],
-    "answer": "Clinical validation + monitoring + protection"
+    "answer": "Clinical validation, post‑market monitoring, and data protection"
   },
   {
     "id": 60,
@@ -658,7 +658,7 @@ export const questions = [
       "Manual auditing quarterly",
       "Image segmentation"
     ],
-    "answer": "Streaming anomaly detection"
+    "answer": "Streaming anomaly detection with features like velocity and device fingerprint"
   },
   {
     "id": 61,
@@ -669,7 +669,7 @@ export const questions = [
       "More warehouses only",
       "Ignoring seasonality"
     ],
-    "answer": "Demand forecasting + dynamic replenishment"
+    "answer": "Demand forecasting and dynamic replenishment"
   },
   {
     "id": 62,
@@ -680,7 +680,7 @@ export const questions = [
       "Turning off cameras",
       "Manual checks only"
     ],
-    "answer": "Automated defects at line speed"
+    "answer": "Automated defect detection at line speed and early intervention"
   },
   {
     "id": 63,
@@ -691,7 +691,7 @@ export const questions = [
       "Deleting smart meters",
       "Random shedding"
     ],
-    "answer": "Load forecasting + predictive maintenance"
+    "answer": "Load forecasting and predictive maintenance"
   },
   {
     "id": 64,
@@ -702,7 +702,7 @@ export const questions = [
       "Eliminating teachers",
       "Offline only"
     ],
-    "answer": "Adaptive + multilingual support"
+    "answer": "Adaptive tutoring and multilingual support"
   },
   {
     "id": 65,
@@ -713,7 +713,7 @@ export const questions = [
       "Default surveillance",
       "Opaque models only"
     ],
-    "answer": "Transparent assistants + redress"
+    "answer": "Transparent assistants with disclosure and redress mechanisms"
   },
   {
     "id": 66,
@@ -724,7 +724,7 @@ export const questions = [
       "UI theme consistency",
       "Token count limits only"
     ],
-    "answer": "Validate data/artifacts/dependencies/env"
+    "answer": "Validating datasets, artifacts, dependencies, and environments"
   },
   {
     "id": 67,
@@ -735,7 +735,7 @@ export const questions = [
       "Unlimited retraining",
       "Manual logging"
     ],
-    "answer": "Efficiency + distillation + shared inference"
+    "answer": "Efficient architectures, distillation, and shared inference"
   },
   {
     "id": 68,
@@ -746,7 +746,7 @@ export const questions = [
       "Rejecting cloud entirely",
       "Manual spreadsheets"
     ],
-    "answer": "SaaS copilots + unified data"
+    "answer": "Low‑cost SaaS copilots and a unified data backbone"
   },
   {
     "id": 69,
@@ -757,7 +757,7 @@ export const questions = [
       "Opaque profiles",
       "Hidden opt‑out"
     ],
-    "answer": "Privacy + consent + frequency caps"
+    "answer": "Privacy, consent, and frequency capping"
   },
   {
     "id": 70,
@@ -768,7 +768,7 @@ export const questions = [
       "Productivity‑led growth with uneven distribution",
       "Only entertainment gains"
     ],
-    "answer": "Productivity growth (unevenly distributed)"
+    "answer": "Productivity‑led growth with uneven distribution"
   },
   {
     "id": 71,
@@ -779,7 +779,7 @@ export const questions = [
       "Removing metrics dashboards",
       "Token length tracking only"
     ],
-    "answer": "Drift detection + audits"
+    "answer": "Data/Model drift detection, performance alerts, and periodic audits"
   },
   {
     "id": 72,
@@ -790,7 +790,7 @@ export const questions = [
       "Ignoring rare cases",
       "Replacing experts"
     ],
-    "answer": "Selecting informative samples"
+    "answer": "Selecting the most informative samples for human review"
   },
   {
     "id": 73,
@@ -801,7 +801,7 @@ export const questions = [
       "Only accuracy checks",
       "UI reviews"
     ],
-    "answer": "Fairness tests with error‑rate analysis"
+    "answer": "Pre‑prod fairness tests across demographic groups with error‑rate analysis"
   },
   {
     "id": 74,
@@ -812,7 +812,7 @@ export const questions = [
       "Increase training tokens",
       "Disable tools"
     ],
-    "answer": "Constrain actions/outputs"
+    "answer": "Constrain actions and outputs to approved behaviors"
   },
   {
     "id": 75,
@@ -823,7 +823,7 @@ export const questions = [
       "Slows down inference",
       "Removes audits"
     ],
-    "answer": "Structured outputs + reliable integration"
+    "answer": "Produces structured outputs and enables reliable integration with systems/APIs"
   },
   {
     "id": 76,
@@ -834,7 +834,7 @@ export const questions = [
       "No need for data",
       "Fewer applications"
     ],
-    "answer": "Combined modalities for richer context"
+    "answer": "Better context by combining text, images, audio, and video"
   },
   {
     "id": 77,
@@ -845,7 +845,7 @@ export const questions = [
       "Generate images",
       "Replace backups"
     ],
-    "answer": "Index embeddings for semantic retrieval"
+    "answer": "Index embeddings for semantic search and retrieval"
   },
   {
     "id": 78,
@@ -856,7 +856,7 @@ export const questions = [
       "Slowing pipelines",
       "Removing provenance"
     ],
-    "answer": "Explicit relationships + checks"
+    "answer": "Providing explicit relationships for reasoning and integrity checks"
   },
   {
     "id": 79,
@@ -867,7 +867,7 @@ export const questions = [
       "UI color checks",
       "Skipping logs"
     ],
-    "answer": "Adversarial testing of prompts/tools/paths"
+    "answer": "Adversarial testing of prompts, tools, and decision paths to surface failures"
   },
   {
     "id": 80,
@@ -878,7 +878,7 @@ export const questions = [
       "Ban all datasets",
       "Single‑vendor lock‑in"
     ],
-    "answer": "Benchmarks + open standards + sandboxes"
+    "answer": "Shared benchmarks, open standards, and cross‑border regulatory sandboxes"
   },
   {
     "id": 81,
@@ -944,7 +944,7 @@ export const questions = [
       "Cost Per Media",
       "Cost Per Module"
     ],
-    "answer": "Cost Per Mille"
+    "answer": "Cost Per Mille (thousand impressions)"
   },
   {
     "id": 87,
@@ -1131,7 +1131,7 @@ export const questions = [
       "Manual DVD shipping",
       "Ignoring energy use"
     ],
-    "answer": "Optimizing CDN and renewable energy"
+    "answer": "Optimizing CDN and using renewable-powered data centers"
   },
   {
     "id": 104,
@@ -1197,7 +1197,7 @@ export const questions = [
       "UI design",
       "Codec selection"
     ],
-    "answer": "Sequential release across platforms"
+    "answer": "Sequential release of content across platforms"
   },
   {
     "id": 110,
