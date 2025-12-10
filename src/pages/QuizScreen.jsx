@@ -19,6 +19,7 @@ const QuizScreen = ({ questions, onFinish }) => {
                 setCurrentIndex(c => c + 1);
                 setSelectedOption(null);
             } else {
+                onFinish(isCorrect ? score + 1 : score);
             }
         }, 2000); // 2 seconds delay
     };
