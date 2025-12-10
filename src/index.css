@@ -65,4 +65,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+
+.brand-gradient-text {
+  background: linear-gradient(90deg, #001f3f 0%, #004d99 30%, #5d00a3 70%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #00d4ff; /* Fallback */
+  display: inline-block;
+}
 }

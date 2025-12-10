@@ -53,10 +53,10 @@ const StartScreen = ({ onStart }) => {
         <div style={{ textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
             {/* Typewriter Header */}
-            <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: '400', color: '#00d4ff', fontFamily: 'monospace', minHeight: '2.5rem' }}>
-                <span className="typewriter-text">{displayText}</span>
+            <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: '400', fontFamily: 'monospace', minHeight: '2.5rem' }}>
+                <span className="typewriter-text brand-gradient-text">{displayText}</span>
             </h2>
-            <p style={{ color: '#00d4ff', fontSize: '1rem', marginTop: '-1rem', marginBottom: '2rem', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.8 }}>
+            <p className="brand-gradient-text" style={{ fontSize: '1rem', marginTop: '-1rem', marginBottom: '2rem', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.9, fontWeight: '700' }}>
                 Powered by AI, Driven by You!
             </p>
 

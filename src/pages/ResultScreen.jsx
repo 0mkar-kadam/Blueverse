@@ -119,7 +119,7 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
 
     return (
         <div style={{ textAlign: 'center', padding: '1rem', animation: 'fadeIn 1s' }}>
-            <h2 style={{ marginBottom: '2.5rem', fontSize: '1.8rem' }}>Mission Complete</h2>
+            <h2 className="brand-gradient-text" style={{ marginBottom: '2.5rem', fontSize: '1.8rem', fontWeight: '700' }}>Mission Complete</h2>
 
             <div style={{
                 width: '180px',
@@ -144,7 +144,7 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
                     alignItems: 'center',
                     position: 'absolute'
                 }}>
-                    <span style={{ fontSize: '3.5rem', fontWeight: '800', background: 'linear-gradient(to bottom, #fff, #00d4ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <span className="brand-gradient-text" style={{ fontSize: '3.5rem', fontWeight: '800' }}>
                         {score}
                     </span>
                     <span style={{ fontSize: '0.9rem', color: '#8892b0', textTransform: 'uppercase', letterSpacing: '1px' }}>
