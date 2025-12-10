@@ -73,14 +73,36 @@ export const QuizService = {
     },
 
     // Helper for LocalStorage fallback
-    // Check if user has already played
-    checkHasPlayed: (psNumber) => {
-        // 1. Check LocalStorage
-        const results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
-        const hasPlayedLocal = results.some(r => r.psNumber && r.psNumber.toUpperCase() === psNumber.toUpperCase());
+    // Check if user has already played (Database Only)
+    checkHasPlayed: async (psNumber) => {
+        if (!psNumber) return false;
 
-        return hasPlayedLocal;
-        // Note: For stricter checks, we would verify with Supabase here
+        // 1. Strict Database Check
+        if (supabase) {
+            try {
+                const { count, error } = await supabase
+                    .from('quiz_results')
+                    .select('*', { count: 'exact', head: true })
+                    .eq('ps_number', psNumber.toUpperCase());
+
+                if (error) {
+                    console.error('Supabase Validation Error:', error);
+                    return false; // Fail open if DB error, or return true to block? user wants strictness, but blocking if offline is bad. 
+                    // Let's assume false to allow play if DB is unreachable to avoid lockouts, but log it.
+                }
+
+                return count > 0;
+            } catch (err) {
+                console.error('Validation Exception:', err);
+                return false;
+            }
+        }
+
+        // Fallback: If no Supabase (e.g. dev mode without config), check local
+        // This is only for dev safety, in prod it relies on Supabase
+        console.warn('Supabase not configured for validation. Falling back to local.');
+        const results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+        return results.some(r => r.psNumber && r.psNumber.toUpperCase() === psNumber.toUpperCase());
     },
 
     saveToLocal: (payload) => {

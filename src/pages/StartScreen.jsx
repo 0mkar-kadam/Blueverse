@@ -22,11 +22,11 @@ const StartScreen = ({ onStart }) => {
         return () => clearInterval(typing);
     }, []);
 
-    const checkDuplicatePlay = (ps) => {
-        return QuizService.checkHasPlayed(ps);
+    const checkDuplicatePlay = async (ps) => {
+        return await QuizService.checkHasPlayed(ps);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const cleanPs = psNumber.trim().toUpperCase();
 
@@ -40,9 +40,20 @@ const StartScreen = ({ onStart }) => {
             return;
         }
 
+        // Show verifying state (optional UX improvement)
+        const btn = document.querySelector('button[type="submit"]');
+        if (btn) {
+            btn.disabled = true;
+            btn.innerText = "VERIFYING...";
+        }
+
         // Check for duplicates
-        if (checkDuplicatePlay(cleanPs)) {
+        if (await checkDuplicatePlay(cleanPs)) {
             setError('Nice try! You\'ve already played. Give others a chance to save the Blueverse! 😉');
+            if (btn) {
+                btn.disabled = false;
+                btn.innerText = "Enter Quizverse";
+            }
             return;
         }
 
