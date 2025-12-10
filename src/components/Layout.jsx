@@ -23,12 +23,14 @@ const Layout = ({ children, title }) => {
                     </div>
                     <div style={{ marginBottom: '0.5rem' }}>
                         <img
-                            src="/assets/blueverse_text_logo.png"
+                            src="/assets/blueverse_logo_v2.png"
                             alt="BlueVerse"
                             style={{
-                                height: '50px',
-                                borderRadius: '8px',
-                                display: 'inline-block'
+                                height: '55px',
+                                objectFit: 'contain',
+                                display: 'inline-block',
+                                filter: 'brightness(0) invert(1) drop-shadow(0 0 10px rgba(0,212,255,0.5))',
+                                transition: 'all 0.3s ease'
                             }}
                         />
                     </div>
