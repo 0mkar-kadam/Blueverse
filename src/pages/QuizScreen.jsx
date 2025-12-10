@@ -19,9 +19,8 @@ const QuizScreen = ({ questions, onFinish }) => {
                 setCurrentIndex(c => c + 1);
                 setSelectedOption(null);
             } else {
-                onFinish(isCorrect ? score + 1 : score);
             }
-        }, 1200); // Slightly longer for the user to see the "correct" status
+        }, 3000); // 3 seconds delay
     };
 
     const progress = ((currentIndex) / questions.length) * 100;
