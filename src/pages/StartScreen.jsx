@@ -59,7 +59,7 @@ const StartScreen = ({ onStart }) => {
 
             <div style={{ marginBottom: '3rem' }}>
                 <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '0.5rem', textShadow: '0 0 20px rgba(0,212,255,0.4)' }}>
-                    Welcome, Traveler.
+                    Welcome, To the Media World
                 </h3>
                 <p style={{ color: '#a0aec0', lineHeight: '1.6', fontSize: '1.1rem' }}>
                     The Blueverse awaits your contribution. <br />
