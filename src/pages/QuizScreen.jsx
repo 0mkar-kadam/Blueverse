@@ -20,7 +20,7 @@ const QuizScreen = ({ questions, onFinish }) => {
                 setSelectedOption(null);
             } else {
             }
-        }, 3000); // 3 seconds delay
+        }, 2000); // 2 seconds delay
     };
 
     const progress = ((currentIndex) / questions.length) * 100;
