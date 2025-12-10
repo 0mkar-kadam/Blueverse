@@ -23,7 +23,7 @@ const Layout = ({ children, title }) => {
                     </div>
                     <div style={{ marginBottom: '0.5rem' }}>
                         <img
-                            src="/assets/blueverse_logo_v2.png"
+                            src="/assets/blueverse_logo_v3.png"
                             alt="BlueVerse"
                             style={{
                                 height: '55px',
