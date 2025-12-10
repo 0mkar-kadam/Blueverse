@@ -74,10 +74,16 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
             <h2 style={{ fontSize: '1.8rem', marginBottom: '2rem', color: '#fff' }}>How was your experience?</h2>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '3rem' }}>
-                {['🤩', '🙂', '😐', '🤔'].map((emoji, idx) => (
+                {[
+                    { emoji: '🤩', value: 5, label: 'Excellent' },
+                    { emoji: '🙂', value: 4, label: 'Good' },
+                    { emoji: '😐', value: 3, label: 'Neutral' },
+                    { emoji: '🤔', value: 2, label: 'Needs Improvement' }
+                ].map((item) => (
                     <button
-                        key={idx}
-                        onClick={() => handleFeedback(idx)}
+                        key={item.value}
+                        onClick={() => handleFeedback(item.value)}
+                        title={item.label}
                         style={{
                             fontSize: '2.5rem',
                             background: 'rgba(255,255,255,0.1)',
@@ -86,22 +92,26 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
                             padding: '15px',
                             cursor: 'pointer',
                             transition: 'all 0.2s',
-                            transform: selectedMood === idx ? 'scale(1.1)' : 'scale(1)'
+                            transform: selectedMood === item.value ? 'scale(1.1)' : 'scale(1)',
+                            borderColor: selectedMood === item.value ? '#00d4ff' : 'rgba(0,212,255,0.3)',
+                            backgroundColor: selectedMood === item.value ? 'rgba(0,212,255,0.1)' : 'rgba(255,255,255,0.1)'
                         }}
                         onMouseOver={(e) => {
-                            e.currentTarget.style.transform = 'scale(1.1)';
-                            e.currentTarget.style.borderColor = '#00d4ff';
-                            e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+                            if (selectedMood !== item.value) {
+                                e.currentTarget.style.transform = 'scale(1.1)';
+                                e.currentTarget.style.borderColor = '#00d4ff';
+                                e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+                            }
                         }}
                         onMouseOut={(e) => {
-                            if (selectedMood !== idx) {
+                            if (selectedMood !== item.value) {
                                 e.currentTarget.style.transform = 'scale(1)';
                                 e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
                                 e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
                             }
                         }}
                     >
-                        {emoji}
+                        {item.emoji}
                     </button>
                 ))}
             </div>
