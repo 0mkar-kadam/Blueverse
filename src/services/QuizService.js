@@ -37,7 +37,7 @@ export const QuizService = {
 
     // Save result to Database (Supabase) + LocalStorage (Backup)
     saveResult: async (userData) => {
-        // userData: { psNumber, score, total }
+        // userData: { psNumber, score, total, feedback }
         const payload = {
             ...userData,
             timestamp: new Date().toISOString()
@@ -53,7 +53,8 @@ export const QuizService = {
                             ps_number: userData.psNumber,
                             score: userData.score,
                             total_questions: userData.total,
-                            metadata: { timestamp: payload.timestamp } // Optional extra data
+                            feedback: userData.feedback, // NEW: Store feedback
+                            metadata: { timestamp: payload.timestamp }
                         }
                     ]);
 
@@ -77,7 +78,7 @@ export const QuizService = {
         // 1. Check LocalStorage
         const results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
         const hasPlayedLocal = results.some(r => r.psNumber && r.psNumber.toUpperCase() === psNumber.toUpperCase());
-        
+
         return hasPlayedLocal;
         // Note: For stricter checks, we would verify with Supabase here
     },

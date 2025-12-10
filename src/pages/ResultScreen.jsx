@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 
-const ResultScreen = ({ score, total, onRestart }) => {
+const ResultScreen = ({ score, total, psNumber, onRestart }) => {
     const percentage = Math.round((score / total) * 100);
     let message = "Keep Exploring!";
     let subMessage = "The Blueverse is vast.";
@@ -51,8 +51,17 @@ const ResultScreen = ({ score, total, onRestart }) => {
 
     const handleFeedback = (mood) => {
         setSelectedMood(mood);
-        // Simulate save
         console.log(`User feedback: ${mood}`);
+
+        // Save Result Here
+        import('../services/QuizService').then(({ QuizService }) => {
+            QuizService.saveResult({
+                psNumber,
+                score,
+                total,
+                feedback: mood
+            });
+        });
 
         // Small delay for effect
         setTimeout(() => {

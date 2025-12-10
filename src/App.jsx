@@ -20,11 +20,7 @@ const App = () => {
 
   const handleQuizFinish = (finalScore) => {
     setScore(finalScore);
-    QuizService.saveResult({
-      psNumber,
-      score: finalScore,
-      total: questions.length
-    });
+    // Saving is now handled in ResultScreen after feedback
     setScreen('result');
   };
 
@@ -38,7 +34,7 @@ const App = () => {
     <Layout title={screen === 'quiz' ? 'Quiz in Progress' : ''}>
       {screen === 'start' && <StartScreen onStart={handleStart} />}
       {screen === 'quiz' && <QuizScreen questions={questions} onFinish={handleQuizFinish} />}
-      {screen === 'result' && <ResultScreen score={score} total={questions.length} onRestart={handleRestart} />}
+      {screen === 'result' && <ResultScreen score={score} total={questions.length} psNumber={psNumber} onRestart={handleRestart} />}
     </Layout>
   );
 };
