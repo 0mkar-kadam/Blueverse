@@ -85,7 +85,32 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
                         key={item.value}
                         onClick={() => handleFeedback(item.value)}
                         title={item.label}
-                        className={`feedback-btn ${selectedMood === item.value ? 'selected' : ''}`}
+                        style={{
+                            fontSize: '2.5rem',
+                            background: 'rgba(255,255,255,0.1)',
+                            border: '2px solid rgba(0,212,255,0.3)',
+                            borderRadius: '12px',
+                            padding: '15px',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s',
+                            transform: selectedMood === item.value ? 'scale(1.1)' : 'scale(1)',
+                            borderColor: selectedMood === item.value ? '#00d4ff' : 'rgba(0,212,255,0.3)',
+                            backgroundColor: selectedMood === item.value ? 'rgba(0,212,255,0.1)' : 'rgba(255,255,255,0.1)'
+                        }}
+                        onMouseOver={(e) => {
+                            if (selectedMood !== item.value) {
+                                e.currentTarget.style.transform = 'scale(1.1)';
+                                e.currentTarget.style.borderColor = '#00d4ff';
+                                e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+                            }
+                        }}
+                        onMouseOut={(e) => {
+                            if (selectedMood !== item.value) {
+                                e.currentTarget.style.transform = 'scale(1)';
+                                e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                            }
+                        }}
                     >
                         {item.emoji}
                     </button>
