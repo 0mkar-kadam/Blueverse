@@ -78,7 +78,8 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
                     { emoji: '🤩', value: 5, label: 'Excellent' },
                     { emoji: '🙂', value: 4, label: 'Good' },
                     { emoji: '😐', value: 3, label: 'Neutral' },
-                    { emoji: '🤔', value: 2, label: 'Needs Improvement' }
+                    { emoji: '🤔', value: 2, label: 'Needs Improvement' },
+                    { emoji: '😞', value: 1, label: 'Disappointed' }
                 ].map((item) => (
                     <button
                         key={item.value}
