@@ -73,7 +73,7 @@ const ResultScreen = ({ score, total, psNumber, onRestart }) => {
         <div style={{ animation: 'fadeIn 0.5s' }}>
             <h2 style={{ fontSize: '1.8rem', marginBottom: '2rem', color: '#fff' }}>How was your experience?</h2>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '3rem' }}>
+            <div className="feedback-grid">
                 {[
                     { emoji: '🤩', value: 5, label: 'Excellent' },
                     { emoji: '🙂', value: 4, label: 'Good' },
