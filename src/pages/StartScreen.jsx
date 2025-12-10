@@ -53,16 +53,16 @@ const StartScreen = ({ onStart }) => {
         <div style={{ textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
             {/* Typewriter Header */}
-            <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: '400', fontFamily: 'monospace', minHeight: '2.5rem' }}>
-                <span className="typewriter-text brand-gradient-text">{displayText}</span>
+            <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: '400', color: '#00d4ff', fontFamily: 'monospace', minHeight: '2.5rem' }}>
+                <span className="typewriter-text">{displayText}</span>
             </h2>
-            <p className="brand-gradient-text" style={{ fontSize: '1rem', marginTop: '-1rem', marginBottom: '2rem', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.9, fontWeight: '700' }}>
+            <p style={{ color: '#00d4ff', fontSize: '1rem', marginTop: '-1rem', marginBottom: '2rem', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.8 }}>
                 Powered by AI, Driven by You!
             </p>
 
             <div style={{ marginBottom: '3rem' }}>
-                <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '0.5rem', textShadow: '0 0 20px rgba(0,212,255,0.4)' }}>
-                    Welcome, To the Media World
+                <h3 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '0.5rem', textShadow: '0 0 20px rgba(0,212,255,0.4)', whiteSpace: 'nowrap' }}>
+                    Welcome To Media World!
                 </h3>
                 <p style={{ color: '#a0aec0', lineHeight: '1.6', fontSize: '1.1rem' }}>
                     A next-gen quiz experience where AI meets IQ
