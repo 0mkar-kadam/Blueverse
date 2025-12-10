@@ -46,6 +46,68 @@ const ResultScreen = ({ score, total, onRestart }) => {
         frame();
     }, []);
 
+    const [feedbackGiven, setFeedbackGiven] = React.useState(false);
+    const [selectedMood, setSelectedMood] = React.useState(null);
+
+    const handleFeedback = (mood) => {
+        setSelectedMood(mood);
+        // Simulate save
+        console.log(`User feedback: ${mood}`);
+
+        // Small delay for effect
+        setTimeout(() => {
+            setFeedbackGiven(true);
+        }, 600);
+    };
+
+    const FeedbackUI = () => (
+        <div style={{ animation: 'fadeIn 0.5s' }}>
+            <h2 style={{ fontSize: '1.8rem', marginBottom: '2rem', color: '#fff' }}>How was your experience?</h2>
+
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '3rem' }}>
+                {['🤩', '🙂', '😐', '🤔'].map((emoji, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => handleFeedback(idx)}
+                        style={{
+                            fontSize: '2.5rem',
+                            background: 'rgba(255,255,255,0.1)',
+                            border: '2px solid rgba(0,212,255,0.3)',
+                            borderRadius: '12px',
+                            padding: '15px',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s',
+                            transform: selectedMood === idx ? 'scale(1.1)' : 'scale(1)'
+                        }}
+                        onMouseOver={(e) => {
+                            e.currentTarget.style.transform = 'scale(1.1)';
+                            e.currentTarget.style.borderColor = '#00d4ff';
+                            e.currentTarget.style.background = 'rgba(0,212,255,0.1)';
+                        }}
+                        onMouseOut={(e) => {
+                            if (selectedMood !== idx) {
+                                e.currentTarget.style.transform = 'scale(1)';
+                                e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                            }
+                        }}
+                    >
+                        {emoji}
+                    </button>
+                ))}
+            </div>
+            <p style={{ color: '#a0aec0' }}>Select an option to see your results.</p>
+        </div>
+    );
+
+    if (!feedbackGiven) {
+        return (
+            <div style={{ textAlign: 'center', padding: '1rem' }}>
+                <FeedbackUI />
+            </div>
+        );
+    }
+
     return (
         <div style={{ textAlign: 'center', padding: '1rem', animation: 'fadeIn 1s' }}>
             <h2 style={{ marginBottom: '2.5rem', fontSize: '1.8rem' }}>Mission Complete</h2>
@@ -86,12 +148,14 @@ const ResultScreen = ({ score, total, onRestart }) => {
             <p style={{ marginBottom: '3rem', color: '#a0aec0' }}>{subMessage}</p>
 
             <button
-                onClick={onRestart}
+                onClick={onRestart} // Note: This will restart the flow, so new PS might be needed if validation is strict per session
                 className="btn-primary-glow"
-                style={{ padding: '0.8rem 2.5rem', fontSize: '1rem', width: 'auto' }}
+                style={{ padding: '0.8rem 2.5rem', fontSize: '1rem', width: 'auto', display: 'none' }}
             >
                 Play Again
             </button>
+
+            <p style={{ marginTop: '2rem', color: '#00d4ff', fontWeight: '600' }}>Thank you for playing!</p>
         </div>
     );
 };

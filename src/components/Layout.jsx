@@ -16,9 +16,9 @@ const Layout = ({ children, title }) => {
                 <header style={{ marginBottom: '2.5rem', textAlign: 'center', animation: 'fadeIn 1.2s ease-out' }}>
                     <div className="logo-glitch-hover" style={{ display: 'inline-block', cursor: 'help' }} title="LTIMindtree Blueverse Core">
                         <img
-                            src="/assets/lti-logo.png"
-                            alt="LTIMindtree"
-                            style={{ height: '48px', marginBottom: '0.8rem', objectFit: 'contain', filter: 'brightness(0) invert(1) drop-shadow(0 0 10px rgba(0,212,255,0.3))', transition: 'filter 0.3s' }}
+                            src="/assets/cme_logo.png"
+                            alt="CME LTIMindtree"
+                            style={{ height: '60px', marginBottom: '0.8rem', objectFit: 'contain', filter: 'brightness(0) invert(1) drop-shadow(0 0 10px rgba(0,212,255,0.3))', transition: 'filter 0.3s' }}
                         />
                     </div>
                     <h1 className="title-gradient" style={{ fontSize: '3rem', marginBottom: '0.2rem', textShadow: '0 5px 15px rgba(0,0,0,0.5)' }}>

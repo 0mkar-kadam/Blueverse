@@ -72,6 +72,16 @@ export const QuizService = {
     },
 
     // Helper for LocalStorage fallback
+    // Check if user has already played
+    checkHasPlayed: (psNumber) => {
+        // 1. Check LocalStorage
+        const results = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
+        const hasPlayedLocal = results.some(r => r.psNumber && r.psNumber.toUpperCase() === psNumber.toUpperCase());
+        
+        return hasPlayedLocal;
+        // Note: For stricter checks, we would verify with Supabase here
+    },
+
     saveToLocal: (payload) => {
         const currentData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
         currentData.push(payload);

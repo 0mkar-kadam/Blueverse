@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { QuizService } from '../services/QuizService';
 
 const StartScreen = ({ onStart }) => {
     const [psNumber, setPsNumber] = useState('');
@@ -21,13 +22,31 @@ const StartScreen = ({ onStart }) => {
         return () => clearInterval(typing);
     }, []);
 
+    const checkDuplicatePlay = (ps) => {
+        return QuizService.checkHasPlayed(ps);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!psNumber.trim()) {
+        const cleanPs = psNumber.trim().toUpperCase();
+
+        if (!cleanPs) {
             setError('>> ERROR: IDENTITY REQUIRED');
             return;
         }
-        onStart(psNumber);
+
+        if (cleanPs.length < 5) {
+            setError('>> ERROR: INVALID IDENTIFIER LENGTH');
+            return;
+        }
+
+        // Check for duplicates
+        if (checkDuplicatePlay(cleanPs)) {
+            setError('Nice try! You\'ve already played. Give others a chance to save the Blueverse! 😉');
+            return;
+        }
+
+        onStart(cleanPs);
     };
 
     return (
