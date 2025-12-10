@@ -24,15 +24,28 @@ export const QuizService = {
             localStorage.removeItem(SEEN_QUESTIONS_KEY);
         }
 
-        // 4. Shuffle available
+        // 4. Shuffle available questions
         const shuffled = available.sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, count);
 
-        // 5. Update seen list with NEW selections
-        const newSeenIds = [...seenIds, ...selected.map(q => q.id)];
+        // 5. Randomize Options Position (Knuth Shuffle for better randomness)
+        const randomizedSelected = selected.map(q => {
+            const shuffledOptions = [...q.options];
+            for (let i = shuffledOptions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+            }
+            return {
+                ...q,
+                options: shuffledOptions
+            };
+        });
+
+        // 6. Update seen list with NEW selections
+        const newSeenIds = [...seenIds, ...randomizedSelected.map(q => q.id)];
         localStorage.setItem(SEEN_QUESTIONS_KEY, JSON.stringify(newSeenIds));
 
-        return selected;
+        return randomizedSelected;
     },
 
     // Save result to Database (Supabase) + LocalStorage (Backup)
