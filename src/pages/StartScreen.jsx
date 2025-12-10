@@ -6,7 +6,7 @@ const StartScreen = ({ onStart }) => {
     const [error, setError] = useState('');
 
     // Typewriter State
-    const fullText = "Initialize Agent Sequence...";
+    const fullText = "The Ultimate Quizverse";
     const [displayText, setDisplayText] = useState('');
 
     useEffect(() => {
@@ -56,14 +56,16 @@ const StartScreen = ({ onStart }) => {
             <h2 style={{ marginBottom: '1.5rem', fontSize: '1.8rem', fontWeight: '400', color: '#00d4ff', fontFamily: 'monospace', minHeight: '2.5rem' }}>
                 <span className="typewriter-text">{displayText}</span>
             </h2>
+            <p style={{ color: '#00d4ff', fontSize: '1rem', marginTop: '-1rem', marginBottom: '2rem', letterSpacing: '2px', textTransform: 'uppercase', opacity: 0.8 }}>
+                Powered by AI, Driven by You!
+            </p>
 
             <div style={{ marginBottom: '3rem' }}>
                 <h3 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '0.5rem', textShadow: '0 0 20px rgba(0,212,255,0.4)' }}>
                     Welcome, To the Media World
                 </h3>
                 <p style={{ color: '#a0aec0', lineHeight: '1.6', fontSize: '1.1rem' }}>
-                    The Blueverse awaits your contribution. <br />
-                    Are you ready to sync?
+                    A next-gen quiz experience where AI meets IQ
                 </p>
             </div>
 
@@ -87,7 +89,7 @@ const StartScreen = ({ onStart }) => {
                     className="btn-primary-glow"
                     style={{ width: '100%' }}
                 >
-                    Initiate Launch
+                    Enter Quizverse
                 </button>
             </form>
         </div>
