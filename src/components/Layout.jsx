@@ -21,9 +21,17 @@ const Layout = ({ children, title }) => {
                             style={{ height: '60px', marginBottom: '0.8rem', objectFit: 'contain', filter: 'brightness(0) invert(1) drop-shadow(0 0 10px rgba(0,212,255,0.3))', transition: 'filter 0.3s' }}
                         />
                     </div>
-                    <h1 className="title-gradient" style={{ fontSize: '3rem', marginBottom: '0.2rem', textShadow: '0 5px 15px rgba(0,0,0,0.5)' }}>
-                        BlueVerse
-                    </h1>
+                    <div style={{ marginBottom: '0.5rem' }}>
+                        <img
+                            src="/assets/blueverse_text_logo.png"
+                            alt="BlueVerse"
+                            style={{
+                                height: '50px',
+                                borderRadius: '8px',
+                                display: 'inline-block'
+                            }}
+                        />
+                    </div>
                     {title && <p style={{ color: '#8892b0', fontSize: '0.9rem', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: '600' }}>{title}</p>}
                 </header>
 
